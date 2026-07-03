@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dead of Winter — First-Timer's Rundown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#10151c;
+    --frost:#1b2430;
+    --snow:#e8edf2;
+    --ice:#8fb3c9;
+    --dim:#9aa7b4;
+    --blood:#c0392b;
+    --line:#2b3745;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none!important;transition:none!important;}
+  }
+  body{
+    background:var(--night);
+    color:var(--snow);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+
+  /* ---- snow ---- */
+  .snowfield{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+  .flake{position:absolute;top:-2vh;color:#ffffff;opacity:.35;animation:fall linear infinite;font-size:8px;}
+  @keyframes fall{to{transform:translateY(105vh);}}
+
+  main{position:relative;z-index:1;}
+
+  /* ---- hero ---- */
+  header{
+    padding:88px 0 56px;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(143,179,201,.10), transparent 70%);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ice);margin-bottom:18px;
+  }
+  h1{
+    font-family:'Pathway Gothic One',sans-serif;
+    font-size:clamp(56px,10vw,104px);
+    line-height:.92;letter-spacing:.02em;
+    text-transform:uppercase;
+  }
+  h1 .red{color:var(--blood);}
+  .tagline{
+    margin-top:20px;max-width:56ch;color:var(--dim);font-size:17px;
+  }
+  .tagline strong{color:var(--snow);}
+
+  /* ---- one-line pitch ---- */
+  .pitch{
+    margin:40px 0 0;
+    padding:20px 24px;
+    border-left:3px solid var(--blood);
+    background:var(--frost);
+    font-size:18px;
+  }
+
+  /* ---- sections ---- */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  h2{
+    font-family:'Pathway Gothic One',sans-serif;
+    font-size:34px;letter-spacing:.05em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .sub{color:var(--ice);font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:24px;}
+  p{margin-bottom:16px;max-width:64ch;}
+  p:last-child{margin-bottom:0;}
+  .k{color:var(--ice);font-weight:600;}
+  .b{color:var(--blood);font-weight:600;}
+
+  /* ---- goal cards ---- */
+  .goals{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+  @media(max-width:640px){.goals{grid-template-columns:1fr;}}
+  .goal{
+    background:var(--frost);border:1px solid var(--line);
+    padding:22px;border-radius:4px;
+  }
+  .goal h3{
+    font-family:'Pathway Gothic One',sans-serif;
+    font-size:22px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;
+  }
+  .goal p{font-size:15px;color:var(--dim);margin:0;max-width:none;}
+  .goal.traitor{border-color:rgba(192,57,43,.5);}
+  .goal.traitor h3{color:var(--blood);}
+
+  /* ---- turn steps ---- */
+  .turn{list-style:none;counter-reset:step;margin-top:8px;}
+  .turn li{
+    counter-increment:step;
+    display:flex;gap:20px;align-items:flex-start;
+    padding:18px 0;border-bottom:1px dashed var(--line);
+  }
+  .turn li:last-child{border-bottom:none;}
+  .turn li::before{
+    content:counter(step,decimal-leading-zero);
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--ice);font-size:14px;
+    padding-top:3px;min-width:32px;
+  }
+  .turn h3{font-size:16px;font-weight:600;margin-bottom:4px;}
+  .turn p{font-size:15px;color:var(--dim);margin:0;}
+
+  /* ---- exposure die ---- */
+  .die{
+    margin-top:24px;
+    background:var(--frost);border:1px solid var(--line);border-radius:4px;
+    padding:22px 24px;
+  }
+  .die h3{
+    font-family:'Pathway Gothic One',sans-serif;font-size:20px;
+    letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;
+  }
+  .die-row{display:flex;justify-content:space-between;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:13px;flex-wrap:wrap;}
+  .die-face{flex:1;min-width:120px;text-align:center;padding:12px 6px;border:1px solid var(--line);border-radius:3px;color:var(--dim);}
+  .die-face span{display:block;font-size:20px;margin-bottom:6px;}
+  .die-face.bad{border-color:rgba(192,57,43,.6);color:var(--snow);}
+  .die-face.bad span{color:var(--blood);}
+
+  /* ---- tips ---- */
+  .tips p{padding-left:18px;position:relative;}
+  .tips p::before{content:"—";position:absolute;left:0;color:var(--ice);}
+
+  footer{padding:40px 0 64px;color:var(--dim);font-size:14px;}
+  footer .who{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--ice);margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<div class="snowfield" aria-hidden="true" id="snow"></div>
+
+<main>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Board game night · Rules rundown</div>
+    <h1>Dead of<br>Win<span class="red">t</span>er</h1>
+    <p class="tagline">A <strong>semi-cooperative</strong> zombie survival game for tonight's crew of five. You're a colony of survivors trying to make it through a brutal winter — together. <strong>Probably</strong> together.</p>
+    <div class="pitch">Everyone works toward one shared goal, but each player also has a <b style="color:var(--ice)">secret personal objective</b> — and one of you might secretly be a <b style="color:var(--blood)">betrayer</b> trying to sink the whole colony.</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>How you win (or don't)</h2>
+    <div class="sub">Three ways the game ends</div>
+    <div class="goals">
+      <div class="goal">
+        <h3>The colony wins</h3>
+        <p>Complete the <strong>main objective</strong> (drawn at the start — e.g. collect enough samples, stockpile food) before the round tracker runs out AND complete your own secret objective. Yes, you need both to personally win.</p>
+      </div>
+      <div class="goal">
+        <h3>The colony loses</h3>
+        <p>If <strong>morale hits zero</strong> or the round tracker runs out before the main objective is done, everyone loses — except a betrayer, who might be quietly celebrating.</p>
+      </div>
+      <div class="goal traitor">
+        <h3>The betrayer wins</h3>
+        <p>If someone drew the betrayer secret objective, they win by getting the colony to <strong>fail</strong> while meeting their own conditions. There isn't always a betrayer — that's the fun part.</p>
+      </div>
+      <div class="goal">
+        <h3>Exile</h3>
+        <p>Suspect someone? The group can vote to <strong>exile</strong> a player. They're not out of the game — they get a new exile objective and keep playing from outside the colony.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>A round, step by step</h2>
+    <div class="sub">What actually happens on your turn</div>
+    <ol class="turn">
+      <li>
+        <div>
+          <h3>A crisis is revealed</h3>
+          <p>Each round, the colony faces a crisis (e.g. contribute 4 food or bad things happen). Players contribute cards <strong>face down</strong> — so a betrayer can secretly sabotage it with wrong cards.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Roll your action dice</h3>
+          <p>You roll a pool of dice at the start of your turn, then spend them on actions: <span class="k">attack zombies</span>, <span class="k">search locations</span> for cards, <span class="k">build barricades</span>, or <span class="k">clean waste</span>. Higher rolls unlock harder actions.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Move &amp; take actions</h3>
+          <p>Your survivors can stay at the colony or travel to locations (hospital, grocery store, police station...) to search for the stuff you need. Moving and fighting risks the <span class="b">exposure die</span> — see below.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Zombies swarm</h3>
+          <p>At the end of the round, zombies spawn at the colony and locations based on how many survivors (and how much noise) are there. If there's no space left, they start killing people.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Feed the colony &amp; check morale</h3>
+          <p>The colony consumes food every round. Starvation, deaths, and piled-up waste all drop <strong>morale</strong>. Morale at zero = game over.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="die">
+      <h3>The exposure die ☠</h3>
+      <p style="font-size:15px;color:var(--dim);margin-bottom:14px;">Every time you move between locations or attack a zombie, you roll this little die of doom:</p>
+      <div class="die-row">
+        <div class="die-face"><span>·</span>Nothing (most faces)</div>
+        <div class="die-face bad"><span>⚔</span>Wound</div>
+        <div class="die-face bad"><span>❄</span>Frostbite — keeps wounding</div>
+        <div class="die-face bad"><span>🦷</span>Bite — instant death, and it can spread</div>
+      </div>
+      <p style="font-size:14px;color:var(--dim);margin-top:14px;margin-bottom:0;">The bite is what makes everyone at the table go quiet. Roll it while your survivor is standing next to others and the infection can chain.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Crossroads cards</h2>
+    <div class="sub">The signature twist</div>
+    <p>On your turn, the player to your right holds a secret <span class="k">Crossroads card</span>. It has a hidden trigger — something like "if this player moves to the hospital..." If you happen to do that thing, the card fires and a mini story event happens, usually with a tough choice attached.</p>
+    <p>You never know what will set one off, which makes every turn feel like a little episode of a zombie TV show. Just read them dramatically. It's the law.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap tips">
+    <h2>Tips for your first game</h2>
+    <div class="sub">Five things worth knowing going in</div>
+    <p><strong>Talk, but don't overshare.</strong> Cooperation wins the game, but everyone has a secret objective — a little paranoia is healthy and hilarious.</p>
+    <p><strong>Don't hoard survivors in one spot.</strong> More people at a location = more zombies spawn there.</p>
+    <p><strong>Feed the colony first.</strong> Food shortages quietly drain morale faster than zombies do.</p>
+    <p><strong>Watch who fails crisis checks.</strong> If a crisis fails when the contributed cards should've covered it, someone slipped in a sabotage card...</p>
+    <p><strong>Don't exile-vote too fast.</strong> A wrong exile costs morale and a friend. Sometimes bad luck is just bad luck.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="who">Tonight's colony</div>
+    Michael · James · Lily · Rhys · Sarah — good luck out there. Expect 2–3 hours for a first game, and someone <em>will</em> get bitten at the worst possible moment.
+  </div>
+</footer>
+</main>
+
+<script>
+  // gentle ambient snowfall
+  const field = document.getElementById('snow');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    for(let i=0;i<40;i++){
+      const f=document.createElement('div');
+      f.className='flake';
+      f.textContent='❄';
+      f.style.left=Math.random()*100+'vw';
+      f.style.fontSize=(5+Math.random()*7)+'px';
+      f.style.opacity=(0.15+Math.random()*0.3).toFixed(2);
+      f.style.animationDuration=(9+Math.random()*14)+'s';
+      f.style.animationDelay=(-Math.random()*20)+'s';
+      field.appendChild(f);
+    }
+  }
+</script>
+</body>
+</html>

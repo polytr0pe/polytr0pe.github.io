@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dead of Winter — Quick Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --card:#ffffff;
+    --ink:#33302b;
+    --soft:#6d675e;
+    --pine:#3f5d50;
+    --pine-light:#e4ece7;
+    --ember:#b4552d;
+    --ember-light:#f6e6dc;
+    --line:#e3ddd1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Atkinson Hyperlegible',sans-serif;
+    font-size:18px;
+    line-height:1.7;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+
+  header{padding:72px 0 40px;text-align:center;}
+  .hat{
+    display:inline-block;
+    background:var(--pine-light);color:var(--pine);
+    font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 16px;border-radius:999px;margin-bottom:20px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-size:clamp(38px,7vw,58px);
+    line-height:1.1;font-weight:700;
+    margin-bottom:16px;
+  }
+  .lede{color:var(--soft);max-width:46ch;margin:0 auto;}
+
+  .promise{
+    margin:36px auto 0;max-width:560px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 26px;text-align:left;
+    box-shadow:0 2px 10px rgba(51,48,43,.05);
+  }
+  .promise strong{color:var(--pine);}
+
+  section{padding:44px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2{
+    font-family:'Fraunces',serif;
+    font-size:30px;font-weight:600;margin-bottom:6px;
+  }
+  .sub{color:var(--soft);margin-bottom:24px;}
+  p{margin-bottom:16px;max-width:60ch;}
+  p:last-child{margin-bottom:0;}
+
+  .big-idea{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-bottom:16px;
+    box-shadow:0 2px 10px rgba(51,48,43,.05);
+  }
+  .big-idea h3{
+    font-family:'Fraunces',serif;font-size:21px;font-weight:600;
+    margin-bottom:8px;display:flex;align-items:center;gap:10px;
+  }
+  .big-idea .emoji{font-size:24px;}
+  .big-idea p{color:var(--soft);margin:0;max-width:none;}
+  .big-idea p strong{color:var(--ink);}
+
+  .steps{list-style:none;}
+  .steps li{
+    display:flex;gap:16px;align-items:flex-start;
+    padding:16px 0;
+  }
+  .num{
+    flex-shrink:0;
+    width:36px;height:36px;border-radius:50%;
+    background:var(--pine);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:16px;margin-top:2px;
+  }
+  .steps h3{font-size:19px;font-weight:700;margin-bottom:4px;}
+  .steps p{color:var(--soft);margin:0;}
+
+  .callout{
+    background:var(--ember-light);border-radius:14px;
+    padding:22px 26px;margin-top:24px;
+  }
+  .callout h3{
+    color:var(--ember);font-weight:700;font-size:17px;
+    margin-bottom:6px;display:flex;align-items:center;gap:8px;
+  }
+  .callout p{color:var(--ink);margin:0;max-width:none;}
+
+  .qa{margin-top:8px;}
+  .qa details{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    margin-bottom:12px;overflow:hidden;
+  }
+  .qa summary{
+    cursor:pointer;padding:16px 20px;font-weight:700;
+    list-style:none;position:relative;padding-right:44px;
+  }
+  .qa summary::-webkit-details-marker{display:none;}
+  .qa summary::after{
+    content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+    color:var(--pine);font-size:22px;font-weight:400;
+  }
+  .qa details[open] summary::after{content:"–";}
+  .qa summary:focus-visible{outline:3px solid var(--pine);outline-offset:-3px;border-radius:12px;}
+  .qa .ans{padding:0 20px 18px;color:var(--soft);}
+  .qa .ans p{max-width:none;}
+
+  footer{
+    text-align:center;padding:40px 24px 72px;color:var(--soft);
+  }
+  footer .heart{color:var(--ember);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hat">No experience needed</div>
+    <h1>Dead of Winter</h1>
+    <p class="lede">This game looks complicated when it's set up, but the heart of it is simple. Here's everything you actually need to know before your first go.</p>
+    <div class="promise">
+      <strong>The good news:</strong> you don't need to memorise anything. The group explains things as they come up, and it's totally normal to ask "wait, what does this do?" — even people who've played before do it constantly.
+    </div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>The story in one breath</h2>
+    <p class="sub">Forget the rules for a second — here's what's happening.</p>
+    <p>It's the zombie apocalypse, and it's the middle of a freezing winter. Our little group of survivors lives together in a shared home base called <strong>the colony</strong>. Each round, we go out to places like the grocery store or the hospital to find supplies, then come home and deal with whatever went wrong that week.</p>
+    <p>Think of it like a season of a zombie TV show, where everyone at the table is one of the main characters.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Just three big ideas</h2>
+    <p class="sub">If you understand these, you understand the game.</p>
+
+    <div class="big-idea">
+      <h3><span class="emoji">🤝</span> We're (mostly) a team</h3>
+      <p>There's one <strong>shared goal</strong> for the whole table, like "collect enough food." If we hit it, the group succeeds. So most of the time, everyone genuinely wants to help each other.</p>
+    </div>
+
+    <div class="big-idea">
+      <h3><span class="emoji">🤫</span> Everyone has one little secret</h3>
+      <p>You'll get a secret card with a small personal goal — something like "end the game holding two medicine cards." You quietly work on it alongside the team stuff. <strong>And here's the spicy bit:</strong> one player <em>might</em> have a secret goal that says "make the group fail." Might! Sometimes there's no traitor at all. Suspecting each other over nothing is half the fun.</p>
+    </div>
+
+    <div class="big-idea">
+      <h3><span class="emoji">🎲</span> Your turn is just: roll dice, spend dice</h3>
+      <p>At the start of your turn you roll a few dice. Each die can be spent to do <strong>one thing</strong> — like search a location for supplies, or fight a zombie. That's really it. When your dice are gone, your turn's done.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What a round looks like</h2>
+    <p class="sub">Don't memorise this — it'll make sense after one round. Promise.</p>
+    <ol class="steps">
+      <li>
+        <div class="num">1</div>
+        <div>
+          <h3>A problem of the week appears</h3>
+          <p>The game deals a "crisis" card — like "the colony needs 4 fuel this round." Everyone can chip in cards to solve it.</p>
+        </div>
+      </li>
+      <li>
+        <div class="num">2</div>
+        <div>
+          <h3>Everyone takes their turn</h3>
+          <p>Roll your dice, then spend them: move somewhere, search for supplies, fight a zombie, or help around the colony. Ask the table what's smart — asking for advice is allowed and encouraged.</p>
+        </div>
+      </li>
+      <li>
+        <div class="num">3</div>
+        <div>
+          <h3>Zombies shuffle closer</h3>
+          <p>At the end of the round, zombies show up at the doors. If too many pile up, they get in. This is the game's way of keeping things tense.</p>
+        </div>
+      </li>
+      <li>
+        <div class="num">4</div>
+        <div>
+          <h3>Dinner time</h3>
+          <p>The colony eats some of the food we've gathered. Run out, and everyone's mood (called <strong>morale</strong>) drops. If morale ever hits zero, the game ends. So: food matters!</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <h3>⚠️ The one genuinely scary rule</h3>
+      <p>Whenever you travel between places or fight a zombie, you roll one special little die. Usually nothing happens. But sometimes you get hurt — and on one rare face, your character gets <strong>bitten</strong>, and it's game over for them (not for you — you get a new character!). It's dramatic and sad and everyone gasps. It's the best part.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Questions you might be wondering</h2>
+    <p class="sub">Tap any of these to open the answer.</p>
+    <div class="qa">
+      <details>
+        <summary>What if I make a mistake?</summary>
+        <div class="ans"><p>Genuinely fine. This game runs on group decisions — the table will happily help you plan every turn. Nobody plays this game solo in their head, and there's no way to secretly ruin things by accident.</p></div>
+      </details>
+      <details>
+        <summary>Do I have to lie or act if I'm the traitor?</summary>
+        <div class="ans"><p>Barely. Most of the traitor's work is quietly doing slightly unhelpful things, not delivering Oscar speeches. And there's a good chance nobody is the traitor tonight anyway.</p></div>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <div class="ans"><p>Around 2 hours, maybe a bit more for a first game. But turns are quick and there's lots of table chat, so it doesn't drag.</p></div>
+      </details>
+      <details>
+        <summary>What are Crossroads cards? I heard someone mention them.</summary>
+        <div class="ans"><p>Little surprise story moments. During your turn, another player is secretly holding a card that might trigger based on something you do. When it fires, they read out a short story and the group makes a choice. You can't plan for them — just enjoy them.</p></div>
+      </details>
+      <details>
+        <summary>What should I actually do on my first turn?</summary>
+        <div class="ans"><p>An easy, safe opener: send a survivor to a location (like the grocery store) and spend a die to <strong>search</strong> for cards. Finding food or medicine is always useful, and searching never hurts anyone. Then just ask the table, "anything else I should do?"</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    You've got this. Grab a warm drink, pick the survivor with the best hat, and enjoy the chaos. <span class="heart">♥</span>
+  </div>
+</footer>
+</body>
+</html>
